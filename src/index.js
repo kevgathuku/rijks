@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import App from "./App";
-import ArtObject from "./components/ArtObject";
+import Home from "./containers/Home";
+import CollectionFilterView from "./containers/CollectionFilterView";
+import ArtObjectDetails from "./components/ArtObjectDetails";
 import registerServiceWorker from "./registerServiceWorker";
 import RijksMuseumStore from "./store";
 import "./index.css";
@@ -16,11 +17,17 @@ const Root = props => {
         <Route
           exact
           path="/"
-          render={routeProps => <App {...routeProps} {...props} />}
+          render={routeProps => <Home {...routeProps} {...props} />}
         />
         <Route
           path="/collection/:artId"
-          render={routeProps => <ArtObject {...routeProps} {...props} />}
+          render={routeProps => <ArtObjectDetails {...routeProps} {...props} />}
+        />
+        <Route
+          path="/collection/filter"
+          render={routeProps => (
+            <CollectionFilterView {...routeProps} {...props} />
+          )}
         />
       </Switch>
     </BrowserRouter>

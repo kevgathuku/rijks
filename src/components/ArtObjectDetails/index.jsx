@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
-import { fetchDetails } from "../actions";
-import "./ArtObject.css";
+import { fetchDetails } from "../../actions";
+import "./ArtObjectDetails.css";
 
 @observer
 export default class ArtObject extends Component {
@@ -15,6 +15,10 @@ export default class ArtObject extends Component {
     const { store } = this.props;
     fetchDetails(artId, store);
   }
+
+  onClickMaterial(event) {}
+
+  onClickObjectType(event) {}
 
   render() {
     const { store } = this.props;
@@ -38,15 +42,11 @@ export default class ArtObject extends Component {
                 <span>, {store.currentArtObject.date || ""}</span>
               </p>
               <div className="text-left">
-                <h3 className="text-capitalize bold-font mt-40">
-                  Description
-                </h3>
+                <h3 className="text-capitalize bold-font mt-40">Description</h3>
                 <p className="lighter-font">
                   {store.currentArtObject.description || ""}
                 </p>
-                <h3 className="text-capitalize bold-font mt-40">
-                  Materials
-                </h3>
+                <h3 className="text-capitalize bold-font mt-40">Materials</h3>
                 <p className="lighter-font">
                   {(store.currentArtObject.materials || []).map(material => (
                     <a href="#TODO" key={material}>
