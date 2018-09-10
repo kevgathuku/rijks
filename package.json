@@ -7,20 +7,24 @@
     "dotenv": "^6.0.0",
     "hapi": "^17.5.4",
     "hapijs-namespace": "^1.0.4",
+    "mobx": "4.4.0",
+    "mobx-react": "^5.2.6",
     "qs": "^6.5.2",
     "react": "^16.5.0",
+    "react-app-rewire-mobx": "^1.0.8",
     "react-dom": "^16.5.0",
     "react-scripts": "1.1.5"
   },
   "proxy": "http://localhost:8000",
   "scripts": {
     "start:server": "nodemon server.js",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "react-app-rewired": "^1.6.2"
   }
 }
