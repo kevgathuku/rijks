@@ -45,4 +45,5 @@ Filter View - Filters art objects by material or type  🔗[Link](http://localho
 ### How This Could be Better
 - Better Grid view for the homepage and Filter view
 - Pagination functionality, where more items are loaded either on scroll or on clicking a `Load more` button
-- Better error handling 
+- Better error handling
+- Caching API responses
