@@ -6,25 +6,32 @@ export const fetchAll = store => {
   axios
     .get(`${BASE_URL}/all`)
     .then(function(response) {
-      console.log(response.data);
-      // save data in store
       store.setArtObjects(response.data.data.artObjects);
     })
     .catch(function(error) {
-      // dispatch error
-      console.log(error);
+      console.error(error);
     });
 };
+
 export const fetchDetails = (artId, store) => {
   axios
     .get(`${BASE_URL}/getItem?id=${artId}`)
     .then(function(response) {
-      console.log(response.data);
-      // save data in store
       store.setCurrentArtObject(response.data.data.artObject);
     })
     .catch(function(error) {
-      // dispatch error
-      console.log(error);
+      console.error(error);
+    });
+};
+
+export const filterCollection = (query, store) => {
+  axios
+    .get(`${BASE_URL}/filter${query}`)
+    .then(function(response) {
+      console.log(response.data);
+      store.setArtObjects(response.data.data.artObjects);
+    })
+    .catch(function(error) {
+      console.error(error);
     });
 };

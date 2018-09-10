@@ -20,11 +20,12 @@ const Root = props => {
           render={routeProps => <Home {...routeProps} {...props} />}
         />
         <Route
+          exact
           path="/collection/:artId"
           render={routeProps => <ArtObjectDetails {...routeProps} {...props} />}
         />
         <Route
-          path="/collection/filter"
+          path="/filterCollection"
           render={routeProps => (
             <CollectionFilterView {...routeProps} {...props} />
           )}

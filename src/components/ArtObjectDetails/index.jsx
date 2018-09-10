@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 
 import { fetchDetails } from "../../actions";
 import "./ArtObjectDetails.css";
@@ -15,10 +16,6 @@ export default class ArtObject extends Component {
     const { store } = this.props;
     fetchDetails(artId, store);
   }
-
-  onClickMaterial(event) {}
-
-  onClickObjectType(event) {}
 
   render() {
     const { store } = this.props;
@@ -49,9 +46,12 @@ export default class ArtObject extends Component {
                 <h3 className="text-capitalize bold-font mt-40">Materials</h3>
                 <p className="lighter-font">
                   {(store.currentArtObject.materials || []).map(material => (
-                    <a href="#TODO" key={material}>
+                    <Link
+                      to={`/filterCollection?material=${material}`}
+                      key={material}
+                    >
                       {`${material}    `}
-                    </a>
+                    </Link>
                   ))}
                 </p>
                 <h3 className="text-capitalize bold-font mt-40">
@@ -60,9 +60,12 @@ export default class ArtObject extends Component {
                 <p className="lighter-font">
                   {(store.currentArtObject.objectTypes || []).map(
                     objectType => (
-                      <a href="#TODO" key={objectType}>
+                      <Link
+                        to={`/filterCollection?type=${objectType}`}
+                        key={objectType}
+                      >
                         {`${objectType}    `}
-                      </a>
+                      </Link>
                     )
                   )}
                 </p>
