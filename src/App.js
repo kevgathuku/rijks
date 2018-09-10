@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
+import { Link } from "react-router-dom";
+
 import { fetchAll } from "./actions";
 import { observer } from "mobx-react";
+import "./App.css";
 
 @observer
 class App extends Component {
@@ -12,6 +14,7 @@ class App extends Component {
 
   render() {
     const { store } = this.props;
+    if (!store) return null;
 
     return (
       <div className="App">
@@ -22,16 +25,18 @@ class App extends Component {
           <div className="row mt-40">
             {store.artObjects.map(art => (
               <div className="col-md-4" key={art.id}>
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={art.webImage.url}
-                    alt="Card image cap"
-                  />
-                  <div className="card-body">
-                    <p className="card-text">{art.title}</p>
+                <Link to={`/collection/${art.objectNumber}`}>
+                  <div className="card">
+                    <img
+                      className="card-img-top"
+                      src={art.webImage.url}
+                      alt={art.longTitle}
+                    />
+                    <div className="card-body">
+                      <p className="card-text">{art.title}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

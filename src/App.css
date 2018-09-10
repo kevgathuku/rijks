@@ -9,7 +9,7 @@
   color: white;
 }
 
-.mt-40{
+.mt-40 {
   margin-top: 40px;
 }
 
@@ -17,15 +17,24 @@
   font-size: 1.5em;
 }
 
-.card{
+.card {
   width: 250px;
   margin-bottom: 40px;
 }
 
-.card-img-top{
+.card-img-top {
   cursor: pointer;
 }
 
-.card-body{
+.card-body {
   cursor: pointer;
+  color: darkslategray;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }

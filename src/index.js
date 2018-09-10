@@ -1,11 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
+import ArtObject from "./components/ArtObject";
 import registerServiceWorker from "./registerServiceWorker";
 import RijksMuseumStore from "./store";
+import "./index.css";
 
 const store = new RijksMuseumStore();
 
-ReactDOM.render(<App store={store} />, document.getElementById("root"));
+const Root = props => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" render={routeProps => <App {...routeProps} {...props} />} />
+        <Route path="/collection/:artId" component={ArtObject} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 registerServiceWorker();
