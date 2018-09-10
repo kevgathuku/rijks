@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 
 import { fetchAll } from "./actions";
-import { observer } from "mobx-react";
 import "./App.css";
 
 @observer

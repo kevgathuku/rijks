@@ -15,3 +15,16 @@ export const fetchAll = store => {
       console.log(error);
     });
 };
+export const fetchDetails = (artId, store) => {
+  axios
+    .get(`${BASE_URL}/getItem?id=${artId}`)
+    .then(function(response) {
+      console.log(response.data);
+      // save data in store
+      store.setCurrentArtObject(response.data.data.artObject);
+    })
+    .catch(function(error) {
+      // dispatch error
+      console.log(error);
+    });
+};

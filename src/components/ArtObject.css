@@ -1,0 +1,29 @@
+.p-40 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.ArtDetails {
+  background-color: #e8e7e7;
+}
+
+.ArtDetails-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.ArtDetails-title {
+  font-size: 1.3rem;
+}
+
+.ArtDetails-subtitle {
+}
+
+.subtitle-link {
+  color: #3a8bbb;
+}
+
+.ArtDetails-image{
+  background-color: white;
+}

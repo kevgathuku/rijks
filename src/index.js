@@ -13,8 +13,15 @@ const Root = props => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={routeProps => <App {...routeProps} {...props} />} />
-        <Route path="/collection/:artId" component={ArtObject} />
+        <Route
+          exact
+          path="/"
+          render={routeProps => <App {...routeProps} {...props} />}
+        />
+        <Route
+          path="/collection/:artId"
+          render={routeProps => <ArtObject {...routeProps} {...props} />}
+        />
       </Switch>
     </BrowserRouter>
   );
