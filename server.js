@@ -1,12 +1,18 @@
+const Path = require("path");
 const Hapi = require("hapi");
+const Inert = require("inert");
 const namespace = require("hapijs-namespace");
+
 const api = require("./api/museums");
 
 const server = Hapi.server({
-  host: "localhost",
-  port: 8000,
+  host: "0.0.0.0",
+  port: process.env.PORT || 8000,
   routes: {
-    cors: true
+    cors: true,
+    files: {
+      relativeTo: Path.join(__dirname, 'client', 'build')
+    }
   }
 });
 
@@ -49,6 +55,19 @@ namespace(server, "/api", [
 
 async function start() {
   try {
+    await server.register(Inert);
+
+    server.route({
+      method: "GET",
+      path: "/{param*}",
+      handler: {
+        directory: {
+          path: ".",
+          redirectToSlash: true,
+          index: true
+        }
+      }
+    });
     await server.start();
   } catch (err) {
     console.error(err);

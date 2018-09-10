@@ -1,6 +1,11 @@
 const axios = require("axios");
 
-const BASE_URL = "http://localhost:8000/api";
+let BASE_URL;
+if (process.env.NODE_ENV === "development") {
+  BASE_URL = "http://localhost:8000/api";
+} else {
+  BASE_URL = "https://rijks-challenge.herokuapp.com/api";
+}
 
 export const fetchAll = store => {
   axios

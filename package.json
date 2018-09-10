@@ -1,5 +1,5 @@
 {
-  "name": "rijks",
+  "name": "rijks-server",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,23 +7,13 @@
     "dotenv": "^6.0.0",
     "hapi": "^17.5.4",
     "hapijs-namespace": "^1.0.4",
-    "mobx": "4.4.0",
-    "mobx-react": "^5.2.6",
-    "qs": "^6.5.2",
-    "react": "^16.5.0",
-    "react-app-rewired": "^1.6.2",
-    "react-app-rewire-mobx": "^1.0.8",
-    "react-dom": "^16.5.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5"
+    "inert": "^5.1.0",
+    "qs": "^6.5.2"
   },
-  "proxy": "http://localhost:8000",
   "scripts": {
-    "start:server": "nodemon server.js",
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
