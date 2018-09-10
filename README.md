@@ -22,12 +22,13 @@ cd rijks-challenge
 - To start the server, run the command:
 
 ```bash
-    npm run start:server
+    npm run start
 ```
   The server runs on `http://localhost:8000`
 
 To start the client (frontend), run the command:
    ```bash
+    cd client
     npm run start
    ```
   The client runs on `http://localhost:3000`
