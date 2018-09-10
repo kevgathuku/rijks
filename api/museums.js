@@ -11,39 +11,35 @@ const defaultParams = qs.stringify({
 });
 
 // TODO: Add pagination
-const fetchAll = (req, h) => {
+const fetchAll = () => {
   return axios
     .get(`${BASE_API_URL}/collection?${defaultParams}`)
     .then(response => {
-      console.log(response);
       return { data: response.data };
     })
     .catch(error => {
-      console.log(error);
+      console.error(error);
       return { error: error };
     });
 };
 
-const fetchItem = (request, h) => {
+const fetchItem = (request) => {
   const itemID = request.query.id;
   if (!itemID) return { error: "No ID provided" };
 
   return axios
     .get(`${BASE_API_URL}/collection/${itemID}?${defaultParams}`)
     .then(response => {
-      // handle success
-      console.log(response);
       return { data: response.data };
     })
     .catch(error => {
-      // handle error
-      console.log(error);
+      console.error(error);
       return { error: error };
     });
 };
 
 // TODO: Add pagination
-const filter = (request, h) => {
+const filter = (request) => {
   const itemType = request.query.type;
   const material = request.query.material;
   if (!itemType && !material) return { error: "No filtering data provided!" };
@@ -68,12 +64,10 @@ const filter = (request, h) => {
   return axios
     .get(finalURL)
     .then(response => {
-      console.log(response.data);
       return { data: response.data };
     })
     .catch(error => {
-      // handle error
-      console.log(error);
+      console.error(error);
       return { error: error };
     });
 };

@@ -11,6 +11,7 @@
     "mobx-react": "^5.2.6",
     "qs": "^6.5.2",
     "react": "^16.5.0",
+    "react-app-rewired": "^1.6.2",
     "react-app-rewire-mobx": "^1.0.8",
     "react-dom": "^16.5.0",
     "react-router-dom": "^4.3.1",
@@ -25,7 +26,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4",
-    "react-app-rewired": "^1.6.2"
+    "nodemon": "^1.18.4"
   }
 }
